@@ -1,0 +1,10 @@
+#include <string.h>
+
+void main(){
+
+  char s[] = "Tuesday";
+  char d[] = "Friday";
+
+  char SandD[] = strcat(s,d);
+
+}

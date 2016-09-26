@@ -1,0 +1,9 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+void main(){
+
+  char s[] = "Friday";
+  char d[25] = "Tuesday";
+
+}
