@@ -147,14 +147,16 @@ char *myStrncat(char *arr1, char *arr2, int n){
   while(*arr1){
     arr1++;
   }
-  while(n){
+  while(n && *arr2){
     *arr1 = *arr2;
     arr1++;
     arr2++;
     n--;
   }
   *arr1 = *arr2;
-  return arr1;
+  arr1++;
+  *arr1 = 0;
+  return arr1; //fix, does not return proper pointer
 }
 
 // assumes arr1 and arr2 are null terminated
