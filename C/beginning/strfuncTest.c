@@ -24,8 +24,10 @@ void main(){
   char str9[] = "fourzzz";
   char extra1[] = "tester";
   char extra2[] = "undead";
-  char extra3[] = "unfortunate";
+  char extra3[17] = "unfortunate"; // specified size bc it would bleed into extra5
   char extra4[] = "random";
+  char extra5[] = "onetwothree";
+  char extra6[] = "ne";
 
   //variables
   printf("variables:\n");
@@ -43,6 +45,8 @@ void main(){
   printf("extra2: %s\n",extra2);
   printf("extra3: %s\n",extra3);
   printf("extra4: %s\n",extra4);
+  printf("extra5: %s\n",extra5);
+  printf("extra6: %s\n",extra6);
   printf("\n");
 
   //strlen
@@ -95,7 +99,12 @@ void main(){
   printf("Char 'a' in str5 does not exist: %d \n",myStrchr(str5,'a') == 0);
   printf("Char 'o' in str5 exists: %d \n",myStrchr(str5,'o') > 0);
   printf("\n");
-  
+
+  //strstr
+  printf("myStrstr\n");
+
+  printf("Print from location of 'ne' in 'onetwothree': %s\n",myStrstr(extra5,extra6));
+  printf("\n");
 }
 
 // assumes arr1 and arr2 are null terminated
@@ -194,9 +203,9 @@ char *myStrchr(char *arr, char c){
 
 // fix
 char *myStrstr(char *arr1, char *arr2){
+  int i = 0;
   while(*arr1){
     if(*arr1 == *arr2){
-      int i = 0;
       while(*arr1 && *arr2){
 	if(*arr1 != *arr2)
 	  break;
@@ -205,9 +214,11 @@ char *myStrstr(char *arr1, char *arr2){
 	i++;
       }
       arr1 = arr1-i;
+      if(!*arr2)
+	break;
       arr2 = arr2-i;
     }
     arr1++;
-    arr2++;
   }
+  return arr1;
 }
